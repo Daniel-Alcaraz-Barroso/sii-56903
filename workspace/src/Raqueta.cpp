@@ -20,5 +20,7 @@ Raqueta::~Raqueta()
 
 void Raqueta::Mueve(float t)
 {
-
+	velocidad.x=5/t;
+	velocidad.y=5/t;
+	
 }
