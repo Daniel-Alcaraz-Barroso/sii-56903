@@ -12,7 +12,7 @@ Material docente de la asignatura **Sistemas Informáticos Industriales** de la 
 
 ## 📖 Descripción
 
-Este repositorio contiene el material utilizado en las prácticas de la asignatura **Sistemas Informáticos Industriales**, incluyendo los guiones y el código de inicio.
+Este repositorio contiene el resultado de la realización de las prácticas de la asignatura **Sistemas Informáticos Industriales**.
 
 El objetivo de la asignatura es introducir en el desarrollo de aplicaciones para sistemas informáticos industriales, haciendo especial énfasis en el uso del lenguaje C y del sistema operativo Linux.
 
@@ -31,14 +31,11 @@ https://github.com/raquelcedazo/sistemas-informaticos-industriales/wiki
 
 Asignatura impartida por el **Departamento de Ingeniería Eléctrica, Electrónica, Automática y Física Aplicada** de la **Universidad Politécnica de Madrid**:
 
-- **Raquel Cedazo** *(coordinadora de las prácticas)*
 - **David Álvarez**
-- **Imanol Izcara**
 
 ---
 
-## 🤝 Contribuciones
+## 📖 Prácticas
 
-Este repositorio tiene finalidad exclusivamente docente.
-
-Si detectas algún error o tienes alguna sugerencia de mejora, puedes comunicarlo al profesorado de la asignatura.
+Práctica 1: se aprende el manejo basico de la terminal de linux y se otorga movimiento a las raquetas y a la pelota del juego.
+Práctica 2: Se crea un programa "logger" encargado de llevar la puntuacion de los jugadores. La comunicación entre el juego del tenis y el programa logger se hace mediante tuberias.
