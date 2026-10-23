@@ -10,6 +10,9 @@
 #include <string.h>
 #include <math.h>
 
+#include <fcntl.h>
+#include <unistd.h>
+
 //////////////////////////////////////////////////////////////////////
 // Construction/Destruction
 //////////////////////////////////////////////////////////////////////
@@ -21,7 +24,7 @@ CMundo::CMundo()
 
 CMundo::~CMundo()
 {
-
+        close(identificador_tuberia);
 }
 
 void CMundo::InitGL()
@@ -135,6 +138,10 @@ void CMundo::OnTimer(int value)
 		esfera.velocidad.x=2+2*rand()/(float)RAND_MAX;
 		esfera.velocidad.y=2+2*rand()/(float)RAND_MAX;
 		puntos2++;
+		//cambios 22/10
+		char buffer[1024];
+                sprintf(buffer, "Jugador 2 ha marcado, tiene %d puntos\n", puntos2);
+		write(identificador_tuberia, buffer, sizeof(buffer));
 	}
 
 	if(fondo_dcho.Rebota(esfera))
@@ -144,8 +151,17 @@ void CMundo::OnTimer(int value)
 		esfera.velocidad.x=-2-2*rand()/(float)RAND_MAX;
 		esfera.velocidad.y=-2-2*rand()/(float)RAND_MAX;
 		puntos1++;
+		//cambios 22/10
+		char buffer[1024];
+		sprintf(buffer, "Jugador 1 ha marcado, tiene %d puntos\n", puntos1);
+		write(identificador_tuberia, buffer, sizeof(buffer));
 	}
-
+	
+	//cambios 22/10
+	if((puntos1 == 3) | (puntos2 == 3)) exit(0);
+	
+	
+	
 }
 
 void CMundo::OnKeyboardDown(unsigned char key, int x, int y)
@@ -192,4 +208,10 @@ void CMundo::Init()
 	jugador2.g=0;
 	jugador2.x1=6;jugador2.y1=-1;
 	jugador2.x2=6;jugador2.y2=1;
+	
+	//cambios 22/10
+	if((identificador_tuberia = open ("FIFO", O_WRONLY)) < 0){
+		perror("No puede abrirse el FIFO");
+	}
+	
 }

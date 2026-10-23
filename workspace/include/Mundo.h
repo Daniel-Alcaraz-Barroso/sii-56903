@@ -33,6 +33,9 @@ public:
 	Plano fondo_dcho;
 	Raqueta jugador1;
 	Raqueta jugador2;
+	
+	//cambios 22/10
+	int identificador_tuberia;
 
 	int puntos1;
 	int puntos2;
